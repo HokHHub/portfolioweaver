@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    border-bottom: 1px solid #1E2D3D;
+}
+
+.header__section {
+    border-right: 1px solid #1E2D3D;
+}
+
+.header__lastsection {
+    border-left: 1px solid #1E2D3D;
+}
+
+.header__textName {
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    margin-right: 154px;
+    margin-left: 22px;
+}
+
+.header__text {
+    cursor: pointer;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    display: flex;
+    padding-left: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 31px;
+    transition: 0.3s;
+}
+
+.header__text:hover {
+    color: white;
+}
+
+.header__all {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__main {
+    display: flex;
+}
