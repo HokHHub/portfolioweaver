@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode.ttf');
+}
+
+:root {
+  font-family: 'Fira Code';
+  background: #010C15;
+  padding: 69px;
+  color: white;
+}
