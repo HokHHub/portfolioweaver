@@ -4,6 +4,8 @@ import './index.css'
 const root = createRoot(document.querySelector('#root'))
 import routes from "./routes"
 
-root.render(
-    <RouterProvider router={routes}/>
+createRoot(document.getElementById('root')).render(
+  <>
+    <App />
+  </>,
 )
