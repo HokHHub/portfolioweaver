@@ -1,14 +1,21 @@
 .header {
     display: flex;
+    position: relative;
+    z-index: 1000;
+    height: 56px;
     border-bottom: 1px solid #1E2D3D;
 }
 
 .header__section {
     border-right: 1px solid #1E2D3D;
+    display: flex;
+    align-items: center;
 }
 
 .header__lastsection {
     border-left: 1px solid #1E2D3D;
+    display: flex;
+    align-items: center;
 }
 
 .header__textName {
@@ -20,6 +27,7 @@
     line-height: normal;
     margin-right: 154px;
     margin-left: 22px;
+    padding: 17px 0;
 }
 
 .header__text {
@@ -34,8 +42,8 @@
     padding-left: 32px;
     justify-content: center;
     align-items: center;
-    margin-right: 31px;
     transition: 0.3s;
+    padding: 17px 32px;
 }
 
 .header__text:hover {
@@ -50,4 +58,73 @@
 
 .header__main {
     display: flex;
+}
+
+.header__burgerMenu {
+    display: none;
+    z-index: 10000;
+    cursor: pointer;
+    margin-top: 19px;
+    margin-right: 18px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.header__burgerMenuTop {
+    display: block;
+    width: 18px;
+    border: 1px solid #607B96;
+    transition: 0.3s;
+}
+
+.header__burgerMenuMid {
+    display: block;
+    width: 18px;
+    border: 1px solid #607B96;
+    transition: 0.3s;
+}
+
+.header__burgerMenuBot {
+    display: block;
+    width: 18px;
+    border: 1px solid #607B96;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 1065px) {
+    .header__textName {
+        margin-right: 42px;
+    }    
+}
+
+@media screen and (max-width: 960px) {
+    .header__textName {
+        margin-right: 32px;
+    }    
+}
+
+@media screen and (max-width: 945px) {
+    .header__burgerMenu {
+        display: flex;
+    }
+
+    .header__lastsection {
+        display: none;
+    }
+
+    .header__section:nth-last-child(2) {
+        display: none;
+    }
+
+    .header__section:nth-last-child(3) {
+        display: none;
+    }
+
+    .header__section:last-child {
+        display: none;
+    }
+
+    .header__section {
+        border: 0;
+    }
 }

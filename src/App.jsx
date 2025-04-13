@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import './App.css'
 import Footer from './Components/Footer/Footer'
 import Header from './Components/Header/Header'
 import Hello from './Components/Hello/Hello'
 
 function App() {
+  let [burgerWindow, setBurgerWindow] = useState('none')
   return (
     <>
-      <Header/>
-      <Hello/>
+      <Header bWindow={burgerWindow} setBurgerWindow={setBurgerWindow}/>
+      <Hello bWindow={burgerWindow} setBurgerWindow={setBurgerWindow}/>
       <Footer/>
     </>
   )
