@@ -1,0 +1,335 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    /* height: 834px; */
+    height: 71.38vh;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    padding: 17px 20px 0 23px;
+    width: max-content;
+    border-right: 1px solid #1E2D3D;
+}
+
+.menu__section_img{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.info{
+    height: 244px;
+    border-right: 1px solid #1E2D3D;
+    width: 243px;
+    height: 100%;
+}
+/* .infoPersonal__title{
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 14px;
+    gap: 11px;
+    border-bottom: 1px solid #1E2D3D;
+    cursor: pointer;
+} */
+.infoPersonal__title_svg{
+    margin-top: 7px;
+}
+/* .infoPersonal__title_h2{
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+} */
+.infoPersonal__main{
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid #1E2D3D;
+    transition: 0.4s;
+}
+.infoPersonal__mainInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+.infoPersonal__mainInfo_arrow{
+    margin-right: 13px;
+    width: 7px;
+    height: 12px;
+}
+.infoPersonal__mainInfo_folder{
+    margin-right: 9px;
+    width: 14.4px;
+    height: 13px;
+}
+.infoPersonal__mainInfo_title{
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* .infoContacts__title{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 14px;
+    gap: 11px;
+    border-bottom: 1px solid #1E2D3D;
+    cursor: pointer;
+} */
+.infoContacts__title_svg{
+    margin-top: 7px;
+}
+/* .infoContacts__title_h2{
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+} */
+.infoContacts__main{
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+.infoContacts__mainInfo{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    cursor: pointer;
+}
+.infoContacts__mainInfo_p{
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.code{
+    height: 100%;
+    border-right: 1px solid #1E2D3D;
+    width: 50%;
+}
+.codeTabs{
+    height: 42px;
+    border-bottom: 1px solid #1E2D3D;
+}
+.codeWindow{
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 42px);
+    padding: 18px 5% 0 5%;
+}
+.codeWindow::-webkit-scrollbar{
+    background-color: #011627;
+    border-left: 1px solid #1E2D3D;
+    width: 26px;
+}
+.codeWindow::-webkit-scrollbar-thumb{
+    width: 18px;
+    height: 7px;
+    background: #607B96;
+}
+.code__pre{
+    font-family: monospace;
+    white-space: pre;
+}
+.second{
+    width: calc(100% - 311px);
+    display: flex;
+    flex-direction: row;
+}
+.code__stroke{
+    display: flex;
+    /* max-width: 620px; */
+    /* width: 100%; */
+}
+.code__stroke_number{
+    width: 22px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    color: #607B96;
+    text-align: right;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%; /* 27px */
+}
+.code__stroke_star{
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+    width: max-content;
+}
+.code__stroke_ls{
+    display: flex;
+    flex-direction: row;
+}
+.code__stroke_el{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%; /* 27px */
+    /* width: 520px; */
+    text-wrap: wrap;
+    /* width: 620px; */
+    /* height: max-content; */
+}
+/* .code__stroke_el::before{
+    content: '*';
+} */
+.git{
+    width: 50%;
+}
+.gitWindow{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 42px);
+    padding: 18px 0 0 5%;
+}
+.gitWindow::-webkit-scrollbar{
+    background-color: #011627;
+    border-left: 1px solid #1E2D3D;
+    width: 26px;
+}
+.gitWindow::-webkit-scrollbar-thumb{
+    width: 18px;
+    height: 7px;
+    background: #607B96;
+}
+.gitTabs{
+    width: 100%;
+    height: 42px;
+    border-bottom: 1px solid #1E2D3D;
+}
+.git__title{
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+}
+
+.infoPersonal{
+    height: max-content;
+}
+.chapter{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 14px;
+    gap: 11px;
+    border-bottom: 1px solid #1E2D3D;
+    cursor: pointer;
+}
+.chapter_close{
+    height: 42px;
+}
+.chapterContent_close{
+    height: 0;
+    padding: 0;
+    display: none;
+    transition: 0.4s;
+}
+.chapter_title{
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+@media screen and (max-width: 1500px){
+    .code__stroke_number{
+        font-size: 14px;
+    }
+    .code__stroke_el{
+        font-size: 14px;
+    }
+    .code__stroke_star{
+        font-size: 14px;
+    }
+    .git__title{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .chapter{
+        height: 35px;
+    }
+    .infoContacts__title{
+        height: 35px;
+    }
+    .chapter_close{
+        height: 35px;
+    }
+    .code__stroke_number{
+        font-size: 12px;
+    }
+    .code__stroke_el{
+        font-size: 12px;
+    }
+    .code__stroke_star{
+        font-size: 12px;
+    }
+    .git__title{
+        font-size: 12px;
+    }
+    .chapter_title{
+        font-size: 14px;
+    }
+    .infoPersonal__mainInfo_title{
+        font-size: 14px;
+    }
+    .codeWindow::-webkit-scrollbar{
+        width: 20px;
+    }
+    .gitWindow::-webkit-scrollbar{
+        width: 20px;
+    }
+    .menu{
+        padding: 17px 15px 0 ;
+    }
+    .codeWindow{
+        height: calc(100% - 35px);
+    }
+    .codeTabs{
+        height: 35px;
+    }
+    .gitWindow{
+        height: calc(100% - 35px);
+    }
+    .gitTabs{
+        height: 35px;
+    }
+    /* .infoPersonal__title{
+        height: 35px;
+    } */
+    .infoContacts__mainInfo_p{
+        font-size: 14px;
+    }
+}
