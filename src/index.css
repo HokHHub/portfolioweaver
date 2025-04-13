@@ -9,3 +9,9 @@
   padding: 69px;
   color: white;
 }
+
+@media screen and (max-width: 800px) {
+  :root {
+    padding: 15px;
+  }
+}
