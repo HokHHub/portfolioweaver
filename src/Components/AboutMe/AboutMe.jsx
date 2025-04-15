@@ -1,6 +1,4 @@
 import s from './AboutMe.module.css';
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import {data} from '../../Data/data'
 import Contacts from '../Contacts/Contacts';
 import { useEffect, useState } from 'react';
@@ -55,7 +53,6 @@ officia deserunt mollit anim id est laborum.
 
     return(
         <>
-            <Header/>
             <main className={s.main}>
                 <div className={s.menu}>
                     <div className={s.menu__section}>
@@ -140,7 +137,6 @@ officia deserunt mollit anim id est laborum.
                     </div>
                 </div>
             </main>
-            <Footer/>
         </>
     )
 }
