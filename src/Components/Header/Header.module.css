@@ -62,7 +62,8 @@
 
 .header__burgerMenu {
     display: none;
-    z-index: 10000;
+    position: relative;
+    z-index: 1000;
     cursor: pointer;
     margin-top: 19px;
     margin-right: 18px;

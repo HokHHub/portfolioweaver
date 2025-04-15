@@ -3,14 +3,25 @@
   src: url('/fonts/FiraCode.ttf');
 }
 
+body {
+  height: 100%;
+}
+
 :root {
   font-family: 'Fira Code';
   background: #010C15;
   padding: 69px;
   color: white;
+  height: 100vh;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
+  :root {
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
   :root {
     padding: 15px;
   }

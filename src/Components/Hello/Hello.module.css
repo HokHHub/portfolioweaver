@@ -23,8 +23,6 @@
 .hello__titles {
     position: relative;
     z-index: 100;
-    margin-top: 265px;
-    margin-left: 311px;
 }
 
 .hello__subtitles {
@@ -117,9 +115,7 @@
 }
 
 .hello__about {
-    margin-left: 311px;
     margin-top: 81px;
-    margin-bottom: 265px;
     gap: 9px;
     display: flex;
     flex-direction: column;
@@ -309,24 +305,8 @@
     position: relative;
 }
 
-@media screen and (max-width: 1760px) {
-    .hello__titles {
-        margin-left: 211px;
-    }
-
-    .hello__about {
-        margin-left: 211px;
-    }
-}
-
-@media screen and (max-width: 1660px) {
-    .hello__titles {
-        margin-left: 111px;
-    }
-
-    .hello__about {
-        margin-left: 111px;
-    }
+.hello__main {
+    margin: 0 27px;
 }
 
 @media screen and (max-width: 1560px) {
@@ -349,12 +329,7 @@
 }
 
 @media screen and (max-width: 1400px) {
-    .hello__titles {
-        margin-left: 52px;
-    }
-
     .hello__about {
-        margin-left: 52px;
         margin-top: 50px;
     }
 }
@@ -364,30 +339,14 @@
         display: none;
     }
 
-    .hello__titles {
-        margin-left: 80px;
-    }
-
     .hello__about {
-        margin-left: 80px;
         margin-top: 50px;
     }
 }
 
 @media screen and (max-width: 800px) {
-    .hello__titles {
-        margin-left: 27px;
-        margin-top: 96px;
-    }
-
     .hello__specialty {
         font-size: 20px;
-    }
-
-    .hello__about {
-        margin-left: 27px;
-        margin-bottom: 85px;
-        margin-top: 195px;
     }
 
     .hello__comment {
@@ -417,6 +376,23 @@
 
     .hello__codeLink_quotes {
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .hello {
+        height: 100%;
+    }
+
+    .hello__all {
+        height: 100%;
+    }
+
+    .hello__main {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
 }
 
