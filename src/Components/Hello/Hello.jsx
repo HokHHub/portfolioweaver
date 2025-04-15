@@ -266,7 +266,7 @@ export default function Hello(props) {
                         </defs>
                     </svg>
                 </div>
-                <div className={s.container}>
+                <div className={s.container} style={{height: '100%'}}>
                     <div className={s.hello__all}>
                         <div className={s.hello__main}>
                             <div className={s.hello__titles}>
