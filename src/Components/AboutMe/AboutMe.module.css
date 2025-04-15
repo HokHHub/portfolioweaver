@@ -81,12 +81,19 @@
 /* -----------------------------------------*/
 .chapter_arrow{
     margin-top: 7px;
+    transition: 0.3s;
+}
+.chapter_open{
+    transform: rotate(-90deg);
 }
 .folder__contacts{
     display: flex;
     flex-direction: row;
     gap: 8px;
     align-items: center;
+}
+.folder{
+    /* position: relative; */
 }
 .folder__open{
     transform: rotate(90deg);
@@ -114,6 +121,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* margin-right: 5px; */
 }
 .folder__content_arrow:hover{
     .folder__content_arrow svg path{
@@ -124,9 +132,7 @@
     padding-bottom: 4px;
 }
 .folder__arrow{
-    height: 12.728px;
-    width: 7.778px;
-    margin-right: 7px;
+    transition: 0.3s;
 }
 .folder__icon{
     width: 14.444px;
@@ -142,8 +148,15 @@
     line-height: normal;
 }
 .folder__child{
-    padding-left: 20px;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    padding-left: 24px;
     height: max-content;
+}
+.folder__child_close{
+    height: 0;
+    display: none;
 }
 .folder__child__content{
     display: flex;

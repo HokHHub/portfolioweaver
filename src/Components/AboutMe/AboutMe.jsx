@@ -49,14 +49,19 @@ officia deserunt mollit anim id est laborum.
         let chapter = el.currentTarget.parentElement
         chapter.classList.toggle(s.chapter_close)
         chapter.children[1].classList.toggle(s.chapterContent_close)
+        chapter.children[0].children[0].classList.toggle(s.chapter_open)
     }
+
     const openfolder = (el) => {
-        let folder = el.currentTarget.parentElement.parentElement.children[1]
-        // console.log(folder.children[0]);
-        if(folder.children[0] === undefined){
+        let folder = el.currentTarget.parentElement
+        let arrow = folder.children[0].children[0].children[0]
+        let folderChild = folder.children[1]
+        if(folder.children[1].children[0] === undefined){
             console.log('нет элементов');
-        } else if(folder.children[0] !== undefined){
+        } else if(folder.children[1].children[0] !== undefined){
             console.log(folder);
+            arrow.classList.toggle(s.folder__open)
+            folderChild.classList.toggle(s.folder__child_close)
         }
     }
 
@@ -86,8 +91,8 @@ officia deserunt mollit anim id est laborum.
                             {data.personal.section.map((el,i)=>{
                                 return(
                                     <article key={i} className={s.folder}>
-                                        <div className={`${s.folder__content} ${el.content.length !== 0 ? s.folder__content_wC : ''}`}>
-                                            <div className={s.folder__content_arrow} onClick={(el)=> openfolder(el)}>
+                                        <div className={`${s.folder__content} ${el.content.length !== 0 ? s.folder__content_wC : ''}`} onClick={(el)=> openfolder(el)}>
+                                            <div className={s.folder__content_arrow}>
                                                 <svg className={`${s.folder__arrow} ${i === 2 ? s.folder__open : ''}`} xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
                                                     <path d="M5.69658 7.18971L0.746582 2.23971L2.16058 0.82571L8.52458 7.18971L2.16058 13.5537L0.746582 12.1397L5.69658 7.18971Z" fill="#607B96"/>
                                                 </svg>
