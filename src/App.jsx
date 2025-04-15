@@ -1,18 +1,9 @@
-import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
 import './App.css'
-import Footer from './Components/Footer/Footer'
-import Header from './Components/Header/Header'
-import Hello from './Components/Hello/Hello'
+import routes from './routes'
 
 function App() {
-  let [burgerWindow, setBurgerWindow] = useState('none')
-  return (
-    <>
-      <Header bWindow={burgerWindow} setBurgerWindow={setBurgerWindow}/>
-      <Hello bWindow={burgerWindow} setBurgerWindow={setBurgerWindow}/>
-      <Footer/>
-    </>
-  )
+  return <RouterProvider router={routes} />
 }
 
 export default App

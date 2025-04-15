@@ -239,7 +239,7 @@ export default function Hello(props) {
         <>
         
             <section className={s.hello}>
-                <BurgerWindow bWindow={props.bWindow} setBurgerWindow={props.setBurgerWindow} />
+                {/* <BurgerWindow bWindow={props.bWindow} setBurgerWindow={props.setBurgerWindow} /> */}
                 <div className={s.mobileLights}>
                     <svg className={s.mobileLightGreen} xmlns="http://www.w3.org/2000/svg" width="375" height="593" viewBox="0 0 375 593" fill="none">
                         <g opacity="0.4" filter="url(#filter0_f_56_2418)">

@@ -1,9 +1,7 @@
-import {createRoot} from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
+import App from './App.jsx'
 import './index.css'
-const root = createRoot(document.querySelector('#root'))
-import routes from "./routes"
 
-root.render(
-    <RouterProvider router={routes}/>
-)
+const root = createRoot(document.querySelector('#root'))
+
+root.render(<App />)
