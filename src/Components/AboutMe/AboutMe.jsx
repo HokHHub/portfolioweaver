@@ -45,10 +45,19 @@ officia deserunt mollit anim id est laborum.
         
     }, [])
 
-    const openchapter = (el, event) => {
+    const openchapter = (el) => {
         let chapter = el.currentTarget.parentElement
         chapter.classList.toggle(s.chapter_close)
         chapter.children[1].classList.toggle(s.chapterContent_close)
+    }
+    const openfolder = (el) => {
+        let folder = el.currentTarget.parentElement.parentElement.children[1]
+        // console.log(folder.children[0]);
+        if(folder.children[0] === undefined){
+            console.log('нет элементов');
+        } else if(folder.children[0] !== undefined){
+            console.log(folder);
+        }
     }
 
     return(
@@ -67,7 +76,7 @@ officia deserunt mollit anim id est laborum.
                 </div>
                 <div className={s.info}>
                     <div className={s.infoPersonal}>
-                        <div className={s.chapter} onClick={(el)=> openchapter(el, event)}>
+                        <div className={s.chapter} onClick={(el)=> openchapter(el)}>
                             <svg className={s.chapter_arrow} xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                                 <path d="M4.74998 6.65186L0.499969 0.651856L9 0.651855L4.74998 6.65186Z" fill="white"/>
                             </svg>
@@ -77,10 +86,12 @@ officia deserunt mollit anim id est laborum.
                             {data.personal.section.map((el,i)=>{
                                 return(
                                     <article key={i} className={s.folder}>
-                                        <div className={s.folder__content}>
-                                            <svg className={s.folder__arrow} xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
-                                                <path d="M5.69658 7.18971L0.746582 2.23971L2.16058 0.82571L8.52458 7.18971L2.16058 13.5537L0.746582 12.1397L5.69658 7.18971Z" fill="#607B96"/>
-                                            </svg>
+                                        <div className={`${s.folder__content} ${el.content.length !== 0 ? s.folder__content_wC : ''}`}>
+                                            <div className={s.folder__content_arrow} onClick={(el)=> openfolder(el)}>
+                                                <svg className={`${s.folder__arrow} ${i === 2 ? s.folder__open : ''}`} xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
+                                                    <path d="M5.69658 7.18971L0.746582 2.23971L2.16058 0.82571L8.52458 7.18971L2.16058 13.5537L0.746582 12.1397L5.69658 7.18971Z" fill="#607B96"/>
+                                                </svg>
+                                            </div>
                                             <svg className={s.folder__icon} xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
                                                 <path d="M15.0802 4.30056V12.9672C15.0802 13.1588 15.0041 13.3425 14.8687 13.4779C14.7332 13.6134 14.5495 13.6895 14.358 13.6895H1.35796C1.16642 13.6895 0.982719 13.6134 0.847276 13.4779C0.711833 13.3425 0.635742 13.1588 0.635742 12.9672V3.57834H14.358C14.5495 3.57834 14.7332 3.65443 14.8687 3.78988C15.0041 3.92532 15.0802 4.10902 15.0802 4.30056ZM8.15696 2.1339H0.635742V1.41168C0.635742 1.22013 0.711833 1.03643 0.847276 0.900987C0.982719 0.765544 1.16642 0.689453 1.35796 0.689453H6.71252L8.15696 2.1339Z" fill={el.iconColor}/>
                                             </svg>
