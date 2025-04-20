@@ -1,0 +1,345 @@
+.contacts {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contacts__section {
+    width: 100%;
+}
+
+.contacts__section:last-child {
+    border-top: 1px solid #1E2D3D;
+    width: 100%;
+}
+
+.infoContacts {
+    display: flex;
+    flex-direction: column;
+    max-width: 311px;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #1E2D3D;
+}
+
+.chapter {
+    padding-top: 10px;
+    padding-left: 22px;
+    padding-bottom: 9.51px;
+    border-bottom: 1px solid #1E2D3D;
+    max-width: 311px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.chapter__arrow {
+    cursor: pointer;
+}
+
+.chapter__title {
+    cursor: pointer;
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-right: auto;
+}
+
+.folders:first-child {
+    border-bottom: 1px solid #1E2D3D;
+    padding-top: 17px;
+    padding-bottom: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.folders:last-child {
+    height: 100%;
+    padding-top: 17px;
+    padding-bottom: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.folder__contacts {
+    display: flex;
+    padding-left: 22px;
+    align-items: center;
+    gap: 8.28px;
+}
+
+.folder__text {
+    cursor: pointer;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    transition: 0.3s;
+}
+
+.folder__text:hover {
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.chapter_close {
+    height: 42px;
+}
+
+.chapterContent_close {
+    height: 0;
+    padding: 0;
+    display: none;
+    transition: 0.4s;
+}
+
+.contacts__windows {
+    width: 100%;
+    border-bottom: 1px solid #1E2D3D;
+}
+
+.contacts__window {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 167px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #1E2D3D;
+}
+
+.contacts__windowText {
+    cursor: pointer;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: 14px;
+    transition: 0.3s;
+}
+
+.contacts__windowText:hover {
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: 14px;
+}
+
+.contacts__windowClose {
+    cursor: pointer;
+    margin-right: 11px;
+}
+
+.contacts__all {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.contacts__main {
+    height: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 314px;
+    width: 100%;
+}
+
+.form__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 314px;
+}
+
+.form__label {
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+}
+
+.form__standartInput {
+    width: 372px;
+    height: 41px;
+    border-radius: 8px;
+    border: 1px solid #1E2D3D;
+    background: #011221;
+    color: #465E77;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    padding-left: 15px;
+    flex-shrink: 0;
+}
+
+.form__standartInput:focus {
+    outline: none;
+    width: 372px;
+    height: 41px;
+    border-radius: 8px;
+    border: 1px solid #607B96;
+    background: #011221;
+    box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.30);
+    color: #465E77;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    padding-left: 15px;
+    flex-shrink: 0;
+}
+
+.form__bigInput {
+    resize: none;
+    padding-top: 10px;
+    width: 372px;
+    height: 145px;
+    border-radius: 8px;
+    border: 1px solid #1E2D3D;
+    background: #011221;
+    color: #465E77;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    padding-left: 15px;
+    flex-shrink: 0;
+}
+
+.form__bigInput:focus {
+    outline: none;
+    resize: none;
+    padding-top: 10px;
+    width: 372px;
+    height: 145px;
+    border-radius: 8px;
+    border: 1px solid #607B96;
+    background: #011221;
+    box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.30);
+    color: #465E77;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    padding-left: 15px;
+    flex-shrink: 0;
+}
+
+.contacts__mainBlocks {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.contacts__hr {
+    border: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #1E2D3D;
+}
+
+.contacts__codeText {
+    color: #5565E8;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+}
+
+.contacts__codeText {
+    display: flex;
+    flex-direction: column;
+    color: #5565E8;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+}
+
+li::marker {
+    color: #607B96;
+    text-align: right;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+    /* 27px */
+}
+
+.grayCode {
+    color: #607B96; 
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+}
+
+.pinkCode {
+    color: #C98BDF;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+    /* 27px */
+}
+
+.orangeCode {
+    color: #FEA55F;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+}
+
+.orangeCodeEdit {
+    color: #FEA55F;
+    display: inline-flex;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    max-width: 350px;
+    flex-wrap: wrap;
+    word-break: break-all;
+    line-height: 150%;
+}
