@@ -2,7 +2,11 @@
     display: flex;
     flex-direction: row;
     /* height: 834px; */
-    height: 71.38vh;
+    height: 100%;
+    align-items: stretch;
+}
+pre{
+    height: 200px;
 }
 .menu{
     display: flex;
@@ -24,6 +28,16 @@
     border-right: 1px solid #1E2D3D;
     width: 243px;
     height: 100%;
+}
+.infoPersonal{
+    overflow: hidden;
+    height: max-content;
+    transition: 0.4s;
+}
+.infoContacts{
+    overflow: hidden;
+    height: max-content;
+    transition: 0.4s;
 }
 
 .infoContacts__main{
@@ -61,7 +75,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: calc(100% - 42px);
-    padding: 18px 5% 0 5%;
+    padding: 18px 5% 18px 5%;
 }
 .codeWindow::-webkit-scrollbar{
     background-color: #011627;
@@ -78,7 +92,7 @@
     white-space: pre;
 }
 
-/* -----------------------------------------*/
+/* ---------------------------------------------------------------------------------------------------------------*/
 .chapter_arrow{
     margin-top: 7px;
     transition: 0.3s;
@@ -91,9 +105,13 @@
     flex-direction: row;
     gap: 8px;
     align-items: center;
+    cursor: pointer;
 }
-.folder{
-    /* position: relative; */
+.folder__contacts:hover .folder__text{
+    color: #FFF;
+}
+.folder__contacts:hover .folder__contacts_icon path{
+    fill: #FFF;
 }
 .folder__open{
     transform: rotate(90deg);
@@ -108,6 +126,8 @@
     display: flex;
     flex-direction: column;
     gap: 9px;
+    overflow: hidden;
+    transition: 0.4s;
 }
 .folder__content{
     display: flex;
@@ -115,18 +135,18 @@
     align-items: center;
     cursor: pointer;
 }
+.folder__content:hover .folder__text{
+    color: #FFF;
+}
 .folder__content_arrow{
     width: 24px;
     height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-right: 5px; */
 }
-.folder__content_arrow:hover{
-    .folder__content_arrow svg path{
-        fill: #FFF;
-    }
+.folder__content:hover .folder__arrow path{
+    fill: #FFF;
 }
 .folder__content_wC{
     padding-bottom: 4px;
@@ -146,11 +166,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    transition: 0.3s;
 }
 .folder__child{
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     padding-left: 24px;
     height: max-content;
 }
@@ -166,6 +184,9 @@
     padding-top: 5px;
     cursor: pointer;
 }
+.folder__child__content:hover .folder__child__content_title{
+    color: #FFF;
+}
 .folder__child__content_1stElement{
     padding-top: 9px;
 }
@@ -180,10 +201,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    transition: 0.3s;
 }
-/* -----------------------------------------*/
-
-
+/* ---------------------------------------------------------------------------------------------------------*/
 .second{
     width: calc(100% - 311px);
     display: flex;
@@ -191,8 +211,6 @@
 }
 .code__stroke{
     display: flex;
-    /* max-width: 620px; */
-    /* width: 100%; */
 }
 .code__stroke_number{
     width: 22px;
@@ -205,7 +223,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 450;
-    line-height: 150%; /* 27px */
+    line-height: 150%;
 }
 .code__stroke_star{
     color: #607B96;
@@ -228,11 +246,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 450;
-    line-height: 150%; /* 27px */
-    /* width: 520px; */
+    line-height: 150%;
     text-wrap: wrap;
-    /* width: 620px; */
-    /* height: max-content; */
 }
 .git{
     width: 50%;
@@ -241,7 +256,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: calc(100% - 42px);
-    padding: 18px 0 0 5%;
+    padding: 18px 5% 18px 5%;
 }
 .gitWindow::-webkit-scrollbar{
     background-color: #011627;
@@ -267,9 +282,7 @@
     line-height: normal;
 }
 
-.infoPersonal{
-    height: max-content;
-}
+
 .chapter{
     display: flex;
     flex-direction: row;
@@ -280,11 +293,14 @@
 }
 .chapter_close{
     height: 42px;
+    overflow: hidden;
+    transition: 0.4s;
 }
 .chapterContent_close{
-    height: 0;
-    padding: 0;
-    display: none;
+    /* height: 0; */
+    /* padding: 0; */
+    overflow: hidden;
+    /* display: none; */
     transition: 0.4s;
 }
 .chapter_title{
@@ -295,6 +311,11 @@
     font-weight: 300;
     line-height: normal;
 }
+/* ==========================*/
+.gist-meta{
+    display: none;
+}
+/* ==========================*/
 @media screen and (max-width: 1500px){
     .code__stroke_number{
         font-size: 14px;
@@ -307,6 +328,12 @@
     }
     .git__title{
         font-size: 14px;
+    }
+    .codeWindow::-webkit-scrollbar{
+        width: 25px;
+    }
+    .gitWindow::-webkit-scrollbar{
+        width: 25px;
     }
 }
 
@@ -344,9 +371,9 @@
     .gitWindow::-webkit-scrollbar{
         width: 20px;
     }
-    .menu{
+    /* .menu{
         padding: 17px 15px 0 ;
-    }
+    } */
     .codeWindow{
         height: calc(100% - 35px);
     }

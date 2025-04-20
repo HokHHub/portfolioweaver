@@ -1,10 +1,19 @@
 import s from './AboutMe.module.css';
+import st from './Snippet.module.css'
 import {data} from '../../Data/data'
 import Contacts from '../Contacts/Contacts';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Gist from 'react-gist'
 
 export default function AboutMe(){
+    const url = 'https://gist.github.com/e56a4581410c807c9b96431c860b0625.js';
 
+    const gistId = 'e56a4581410c807c9b96431c860b0625';
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `https://api.github.com/gists/e56a4581410c807c9b96431c860b0625`;
+    const user = 'Timur1607'
+
+    const [gitData, setGitData] = useState([])
     const text = (`/**
 About me
 I have 5 years of еxperience in web
@@ -22,27 +31,56 @@ nulla pariatur. Excepteur sint occaecat
 officia deserunt mollit anim id est laborum.
 /`)
 
-    function Check(){
-        let text = document.getElementsByClassName(s.code__stroke_el)
-        for(let i = 0; i < text.length; i++){
-            const style = window.getComputedStyle(text[i])
-            const height = text[i].clientHeight;
-            let lines = height / parseFloat(style.lineHeight);
+    // function Check(){
+    //     let text = document.getElementsByClassName(s.code__stroke_el)
+    //     for(let i = 0; i < text.length; i++){
+    //         const style = window.getComputedStyle(text[i])
+    //         const height = text[i].clientHeight;
+    //         // console.log(text.clientHeight);
+            
+            
+    //         let lines = height / parseFloat(style.lineHeight);
 
-            let div = text[i].parentElement.children[0].children[1]
-            div.innerHTML = ''
-            for(let n = 0; n < lines; n++){
-                let star = document.createElement('p')
-                star.classList.add(s.code__stroke_star)
-                star.textContent = '* '
-                div.appendChild(star)
-            }
-        }
-    }
+    //         let div = text[i].parentElement.children[0].children[1]
+    //         // div.innerHTML = ''
+    //         // for(let n = 0; n < lines; n++){
+    //         //     let star = document.createElement('p')
+    //         //     star.classList.add(s.code__stroke_star)
+    //         //     star.textContent = '* '
+    //         //     div.appendChild(star)
+    //         // }
+    //     }
+    // }
     useEffect(()=>{
-        Check()
-        window.addEventListener('resize', ()=> Check());
-        
+        // Check()
+        // window.addEventListener('resize', ()=> Check());
+
+        // async function fetchGist(){
+        //     const response = await fetch(proxyUrl + apiUrl, {
+        //       headers: {
+        //         'User-Agent': 'My-App-test'
+        //     }});
+        //     const tdata = await response.json();
+        //     // setGitData(tdata)
+        //     // console.log(gitData);
+        //     console.log(tdata);
+        //     // setCode(data.files.gistfile1.content)
+        // }
+        // fetchGist()
+
+        async function UserGist() {
+            const response = await fetch(`https://api.github.com/users/${user}/gists`, {
+                headers: {
+                    'accept': 'application/vnd.github+json',
+                    'User-Agent': 'My-App-test'
+                }
+            });
+            const tdata = await response.json();
+            setGitData(tdata)
+            console.log(tdata);
+            
+        }
+        UserGist()
     }, [])
 
     const openchapter = (el) => {
@@ -129,14 +167,29 @@ officia deserunt mollit anim id est laborum.
                         <div className={s.codeWindow}>
                             <pre>
                                 {text.split('\n').map((el, i)=>{
+                                    const elementRef = useRef(null)
+                                    const divRef = useRef(null)
+                                    if(elementRef.current){
+                                        const height = elementRef.current.offsetHeight
+                                        const lines = height / 18
+                                        console.log(elementRef.current.style.lineHeight);
+                                        
+                                        for(let i = 0; i < Math.floor(lines)-1; i++){
+                                            let star = document.createElement('p')
+                                            star.classList.add(s.code__stroke_star)
+                                            star.textContent = '* '
+                                            divRef.current.appendChild(star)
+                                        }
+                                    }
                                     return(
                                         <div className={s.code__stroke} key={i}>
                                             <div className={s.code__stroke_ls}>
                                                 <p className={s.code__stroke_number}>{i}</p>
-                                                <div className={s.code__strokeDiv}>
+                                                <div ref={divRef} className={s.code__strokeDiv}>
+                                                    <p className={s.code__stroke_star}>* </p>
                                                 </div>
                                             </div>
-                                            <p className={s.code__stroke_el}>{el}</p>
+                                            <p ref={elementRef} className={s.code__stroke_el}>{el}</p>
                                         </div>
                                     )
                                 })}
@@ -149,6 +202,59 @@ officia deserunt mollit anim id est laborum.
                         </div>
                         <div className={s.gitWindow}>
                             <h3 className={s.git__title}>// Code snippet showcase:</h3>
+                            {gitData.length !== 0 ? gitData.map((el, i)=>{
+                                return(
+                                    <article className={st.snippet} key={i}>
+                                        <div className={st.snippet__info}>
+                                            <div className={st.snippet__info_profile}>
+                                                <div className={st.snippet__info_profile_picture}>
+                                                    <img className={st.snippet__info_profile_img} src={el.owner.avatar_url} alt="profile icon" />
+                                                </div>
+                                                <div className={st.snippet__info_profile_info}>
+                                                    <h4 className={st.snippet__info_profile_info_nickName}>{`@${el.owner.login}`}</h4>
+                                                    <p className={st.snippet__info_profile_info_data}>{el.created_at}</p>
+                                                </div>
+                                            </div>
+                                            <div className={st.snippet__info_about}>
+                                                <div className={st.snippet__info_about_div}>
+                                                    {/* <img  src="" alt="details icon" /> */}
+                                                    <svg className={st.snippet__info_about_div_img} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                                                        <g clipPath="url(#clip0_64_2763)">
+                                                            <path d="M4.19676 15.1709C3.49928 14.4753 2.94616 13.6486 2.56917 12.7385C2.19218 11.8284 1.99875 10.8528 2.00001 9.86768C2.00001 5.72543 5.35776 2.36768 9.50001 2.36768C13.6423 2.36768 17 5.72543 17 9.86768C17 14.0099 13.6423 17.3677 9.50001 17.3677H2.00001L4.19676 15.1709ZM6.50001 10.6177C6.50001 11.4133 6.81608 12.1764 7.37869 12.739C7.94129 13.3016 8.70436 13.6177 9.50001 13.6177C10.2957 13.6177 11.0587 13.3016 11.6213 12.739C12.1839 12.1764 12.5 11.4133 12.5 10.6177H6.50001Z" fill="#607B96"/>
+                                                        </g>
+                                                        <defs>
+                                                            <clipPath id="clip0_64_2763">
+                                                            <rect width="18" height="18" fill="white" transform="translate(0.5 0.867676)"/>
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <p className={st.snippet__info_about_div_p}>details</p>
+                                                </div>
+                                                <div className={st.snippet__info_about_div}>
+                                                    <svg className={st.snippet__info_about_div_img} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                                                        <g clipPath="url(#clip0_64_2766)">
+                                                            <path d="M9.06073 14.5627L3.77098 17.5237L4.95223 11.5777L0.500977 7.46168L6.52123 6.74768L9.06073 1.24268L11.6002 6.74768L17.6205 7.46168L13.1692 11.5777L14.3505 17.5237L9.06073 14.5627Z" fill="#607B96"/>
+                                                        </g>
+                                                        <defs>
+                                                            <clipPath id="clip0_64_2766">
+                                                            <rect width="18" height="18" fill="white" transform="translate(0.0605469 0.867676)"/>
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    {/* <img  src="" alt="details icon" /> */}
+                                                    <p className={st.snippet__info_about_div_p}>stars</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={st.snippet__code}>
+                                            <Gist 
+                                                id={el.id}
+                                                wrapperStyles={{}}
+                                            />
+                                        </div>
+                                    </article>
+                                )
+                            }): <></>}
                         </div>
                     </div>
                 </div>
