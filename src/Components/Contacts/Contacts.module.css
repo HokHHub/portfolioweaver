@@ -41,7 +41,6 @@
 }
 
 .chapter__title {
-    cursor: pointer;
     color: #FFF;
     font-family: "Fira Code";
     font-size: 16px;
@@ -165,15 +164,15 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-width: 314px;
-    width: 100%;
+    max-width: 500px;
+    width: 35%;
 }
 
 .form__block {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 314px;
+    max-width: 100%;
 }
 
 .form__label {
@@ -186,8 +185,26 @@
 }
 
 .form__standartInput {
-    width: 372px;
+    width: 100%;
     height: 41px;
+    border-radius: 8px;
+    border: 1px solid #1E2D3D;
+    background: #011221;
+    color: #465E77;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    padding-left: 15px;
+    flex-shrink: 0;
+}
+
+.form__bigInput {
+    resize: none;
+    padding-top: 10px;
+    width: 100%;
+    height: 145px;
     border-radius: 8px;
     border: 1px solid #1E2D3D;
     background: #011221;
@@ -203,10 +220,10 @@
 
 .form__standartInput:focus {
     outline: none;
-    width: 372px;
+    width: 100%;
     height: 41px;
     border-radius: 8px;
-    border: 1px solid #607B96;
+    border: 1px solid #607B96 !important;
     background: #011221;
     box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.30);
     color: #465E77;
@@ -219,29 +236,15 @@
     flex-shrink: 0;
 }
 
-.form__bigInput {
-    resize: none;
-    padding-top: 10px;
-    width: 372px;
-    height: 145px;
-    border-radius: 8px;
-    border: 1px solid #1E2D3D;
-    background: #011221;
-    color: #465E77;
-    font-family: "Fira Code";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 450;
-    line-height: normal;
-    padding-left: 15px;
-    flex-shrink: 0;
+.focusError {
+    border: 1px solid rgb(130, 0, 0);
 }
 
 .form__bigInput:focus {
     outline: none;
     resize: none;
     padding-top: 10px;
-    width: 372px;
+    width: 100%;
     height: 145px;
     border-radius: 8px;
     border: 1px solid #607B96;
@@ -257,10 +260,79 @@
     flex-shrink: 0;
 }
 
+.form__button {
+    width: 146px;
+    cursor: pointer;
+    border: 0;
+    display: inline-flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #1C2B3A;
+    color: #FFF;
+    text-align: center;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+}
+
+.form__accept {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form__thanks {
+    color: #FFF;
+    text-align: center;
+    font-family: "Fira Code";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.form__subtext {
+    color: #607B96;
+    text-align: center;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+    margin-bottom: 37px;
+}
+
+.form__acceptButton {
+    cursor: pointer;
+    border: 0;
+    width: 163px;
+    display: inline-flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #1C2B3A;
+    color: #FFF;
+    text-align: center;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+}
+
 .contacts__mainBlocks {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 0 20px;
     height: 100%;
 }
@@ -304,7 +376,7 @@ li::marker {
 }
 
 .grayCode {
-    color: #607B96; 
+    color: #607B96;
     font-family: "Fira Code";
     font-size: 18px;
     font-style: normal;
@@ -333,7 +405,7 @@ li::marker {
 
 .orangeCodeEdit {
     color: #FEA55F;
-    display: inline-flex;
+    display: inline-table;
     font-family: "Fira Code";
     font-size: 18px;
     font-style: normal;
@@ -342,4 +414,136 @@ li::marker {
     flex-wrap: wrap;
     word-break: break-all;
     line-height: 150%;
+}
+
+.orangeCodeEdit::after {
+    content: ',';
+    color: #607B96;
+}
+
+.mobileTitle {
+    display: none;
+    margin-left: 27px;
+    margin-top: 21px;
+    margin-bottom: 29px;
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 140%;
+    /* 19.6px */
+}
+
+.dnone {
+    display: none;
+}
+
+@media screen and (max-width: 1600px) {
+    .infoContacts {
+        max-width: 260px;
+    }
+
+    .form {
+        gap: 16px;
+        margin-right: 30px;
+    }
+
+    ol {
+        margin-left: 45px;
+    }
+
+    li {
+        font-size: 15px;
+    }
+
+    li::marker {
+        font-size: 15px;
+    }
+
+    .grayCode {
+        font-size: 15px;
+    }
+
+    .pinkCode {
+        font-size: 15px;
+    }
+
+    .orangeCode {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .infoContacts {
+        max-width: 230px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contacts {
+        flex-direction: column;
+    }
+
+    .infoContacts {
+        max-width: 100%;
+    }
+
+    .contacts__section {
+        width: 100%;
+        border-top: 0;
+    }
+
+    .chapter {
+        border-bottom: 0;
+        background-color: #1E2D3D;
+        max-width: unset;
+    }
+
+    .contacts__all {
+        width: 100%;
+    }
+
+    .form {
+        max-width: 100%;
+        width: 95%;
+    }
+
+    .contacts__codeBlock {
+        display: none;
+    }
+
+    .contacts__hr {
+        display: none;
+    }
+
+    .contacts__windows {
+        display: none;
+    }
+
+    .form__button {
+        margin-bottom: 10px;
+    }
+
+    .infoContacts {
+        height: fit-content;
+    }
+
+    .contacts__mainBlocks {
+        height: fit-content;
+        margin-top: 42px;
+    }
+
+    .folders:last-child {
+        padding-bottom: 0px;
+        margin-bottom: -17px;
+    }
+
+    .form {
+        margin-right: 0;
+    }
+
+    .mobileTitle {
+        display: block;
+    }
 }

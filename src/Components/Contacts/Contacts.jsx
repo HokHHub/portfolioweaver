@@ -1,7 +1,13 @@
 import s from './Contacts.module.css'
 import { data } from '../../Data/data'
+import { useNavigate } from 'react-router-dom'
 
 export default function Contacts() {
+    const navigate = useNavigate()
+
+    let today = new Date().toString().split(' ')
+    today = `${today[0]} ${today[2]} ${today[1]}`
+
     function interactFolder(el) {
         if (el.currentTarget.parentElement.parentElement.children[1].style.display == '' || el.currentTarget.parentElement.parentElement.children[1].style.display == 'flex') {
             el.currentTarget.parentElement.parentElement.children[1].style.display = 'none'
@@ -13,13 +19,52 @@ export default function Contacts() {
     }
 
     function changeForm(index, el) {
+        for (let index = 0; index < el.target.classList.length; index++) {
+            if (el.target.classList[index] == s.focusError) {
+                console.log(1);
+                el.target.classList.remove(s.focusError)
+                break
+            }
+        }
         let formEl = document.getElementsByClassName(s.orangeCodeEdit)[index]
-        formEl.innerHTML = `"${el.currentTarget.value}",`
+        formEl.innerHTML = `"${el.currentTarget.value}"`
+        formEl.after()
+    }
+
+    
+    function acceptMessage(el) {
+        el.currentTarget.parentElement.getElementsByClassName(s.form__accept)[0].classList.toggle(s.dnone);
+        for (let index = 0; index < el.currentTarget.parentElement.getElementsByClassName(s.form__block).length; index++) {
+            el.currentTarget.parentElement.getElementsByClassName(s.form__block)[index].classList.toggle(s.dnone);
+        }
+        el.currentTarget.parentElement.getElementsByClassName(s.form__button)[0].classList.toggle(s.dnone);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        const name = formData.get('name')
+        const email = formData.get('email')
+        const message = formData.get('message')
+
+        if (!name) {
+            let nameElement = document.getElementsByClassName(s.form__standartInput)[0]
+            nameElement.classList.add(s.focusError)
+        }
+        if (!email) {
+            let emailElement = document.getElementsByClassName(s.form__standartInput)[1]
+            emailElement.classList.add(s.focusError)
+        }
+        if (!message) {
+            let messageElement = document.getElementsByClassName(s.form__bigInput)[0]
+            messageElement.classList.add(s.focusError)
+        }
     }
 
     return (
         <>
             <section className={s.contacts}>
+                <p className={s.mobileTitle}>_contact-me</p>
                 <div className={s.infoContacts}>
                     <div className={s.contacts__section}>
                         {/* contacts */}
@@ -29,7 +74,7 @@ export default function Contacts() {
                             </svg>
                             <h2 className={s.chapter__title}>{data.contacts.title}</h2>
                         </div>
-                        <div className={s.folders}>
+                        <div className={s.folders} style={{paddingBottom: '27px'}}>
                             {data.contacts.section.map((el, i) => {
                                 return (
                                     <article className={s.folder__contacts} key={i}>
@@ -69,26 +114,32 @@ export default function Contacts() {
                     <div className={s.contacts__windows}>
                         <div className={s.contacts__window}>
                             <p className={s.contacts__windowText}>contacts</p>
-                            <svg className={s.contacts__windowClose} xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
+                            <svg onClick={(el) => navigate('/')} className={s.contacts__windowClose} xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
                                 <path d="M5.00005 4.65244L8.71255 0.939941L9.77305 2.00044L6.06055 5.71294L9.77305 9.42544L8.71255 10.4859L5.00005 6.77344L1.28755 10.4859L0.227051 9.42544L3.93955 5.71294L0.227051 2.00044L1.28755 0.939941L5.00005 4.65244Z" fill="#607B96" />
                             </svg>
                         </div>
                     </div>
                     <div className={s.contacts__main}>
                         <div className={s.contacts__mainBlocks}>
-                            <form className={s.form}>
+                            <form onSubmit={handleSubmit} className={s.form}>
+                                <div className={`${s.form__accept} ${s.dnone}`}>
+                                    <p className={s.form__thanks}>Thank you! 🤘</p>
+                                    <p className={s.form__subtext}>Your message has been accepted. You will recieve answer really soon!</p>
+                                    <button onClick={(el) => {acceptMessage(el), el.preventDefault()}} className={s.form__acceptButton}>send-new-message</button>
+                                </div>
                                 <div className={s.form__block}>
                                     <label className={s.form__label} htmlFor="name">_name:</label>
-                                    <input onChange={(el) => {changeForm(0, el)}} className={s.form__standartInput} type="text" name="name" id="name" />
+                                    <input onChange={(el) => {changeForm(0, el)}} className={s.form__standartInput} type="text" name="name" id="name" noValidate/>
                                 </div>
                                 <div className={s.form__block}>
                                     <label className={s.form__label} htmlFor="email">_email:</label>
-                                    <input onChange={(el) => {changeForm(1, el)}} className={s.form__standartInput} type="text" name="email" id="email" />
+                                    <input onChange={(el) => {changeForm(1, el)}} className={s.form__standartInput} type="email" name="email" id="email" noValidate/>
                                 </div>
                                 <div className={s.form__block}>
                                     <label className={s.form__label} htmlFor="message">_message:</label>
-                                    <textarea onChange={(el) => {changeForm(2, el)}} rows={7} className={s.form__bigInput} name="message" id="message" />
+                                    <textarea onChange={(el) => {changeForm(2, el)}} rows={7} className={s.form__bigInput} type="text" name="message" id="message" noValidate/>
                                 </div>
+                                <input type='submit' className={s.form__button} value="submit-message"/>
                             </form>
                             <hr className={s.contacts__hr} />
                             <div className={s.contacts__codeBlock}>
@@ -96,10 +147,10 @@ export default function Contacts() {
                                     <li><span className={s.pinkCode}>const</span> button <span className={s.pinkCode}>=</span> document<span className={s.grayCode}>.</span>querySelector<span className={s.grayCode}>(</span><span className={s.orangeCode}>'#sendBtn'</span><span className={s.grayCode}>);</span><br /></li>
                                     <li></li>
                                     <li><span className={s.pinkCode}>const</span> message <span className={s.pinkCode}>=</span> <span className={s.grayCode}>{'{'}</span><br /></li>
-                                    <li>&nbsp;&nbsp;name: <span className={s.orangeCodeEdit}>""<span className={s.grayCode}>,</span></span><br /></li>
-                                    <li>&nbsp;&nbsp;email: <span className={s.orangeCodeEdit}>""<span className={s.grayCode}>,</span></span><br /></li>
-                                    <li>&nbsp;&nbsp;message: <span className={s.orangeCodeEdit}>""<span className={s.grayCode}>,</span></span><br /></li>
-                                    <li><span className={s.grayCode}>&nbsp;&nbsp;date:</span> <span className={s.orangeCode}>""</span><br /></li>
+                                    <li>&nbsp;&nbsp;name: <span className={s.orangeCodeEdit}>""</span><br /></li>
+                                    <li>&nbsp;&nbsp;email: <span className={s.orangeCodeEdit}>""</span><br /></li>
+                                    <li>&nbsp;&nbsp;message: <span className={s.orangeCodeEdit}>""</span><br /></li>
+                                    <li><span className={s.grayCode}>&nbsp;&nbsp;date:</span> <span className={s.orangeCode}>"{today}"</span><br /></li>
                                     <li><span className={s.grayCode}>{'}'}</span><br /></li>
                                     <li></li>
                                     <li>button<span className={s.grayCode}>.</span>addEventListener<span className={s.grayCode}>{'('}</span><span className={s.orangeCode}>'click'</span> <span className={s.grayCode}>{'()'} <span className={s.pinkCode}>{'=>'}</span> {'{'}</span><br /></li>
