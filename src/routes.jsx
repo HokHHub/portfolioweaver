@@ -3,6 +3,7 @@ import Layout from './Layout'
 import Hello from './Components/Hello/Hello'
 import About from './Components/AboutMe/AboutMe'
 import Contacts from './Components/Contacts/Contacts'
+import Projects from './Components/Projects/Projects'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contacts />
+      },
+      {
+        path: 'projects',
+        element: <Projects/>
       }
     ]
   },
