@@ -1,5 +1,7 @@
 .snippet{
     padding: 5px;
+    max-width: 664px;
+    width: 100%;
 }
 .snippet__info{
     display: flex;
