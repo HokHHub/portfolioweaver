@@ -66,4 +66,25 @@ export const data = {
             },
         ]
     },
+    projects: {
+        title: 'projects',
+        section: [
+            {
+                filter: 'React',
+                icon: '/img/react.svg'
+            },
+            {
+                filter: 'HTML',
+                icon: '/img/javascript.svg'
+            },
+            {
+                filter: 'CSS',
+                icon: '/img/css.svg'
+            },
+            {
+                filter: 'JavaScript',
+                icon: '/img/javascript.svg'
+            }
+        ]
+    }
 }

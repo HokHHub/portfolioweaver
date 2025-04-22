@@ -332,6 +332,7 @@
 .contacts__mainBlocks {
     display: flex;
     align-items: center;
+    background: #011627;
     justify-content: space-evenly;
     padding: 0 20px;
     height: 100%;
@@ -532,6 +533,7 @@ li::marker {
     .contacts__mainBlocks {
         height: fit-content;
         margin-top: 42px;
+        padding-bottom: 20px;
     }
 
     .folders:last-child {

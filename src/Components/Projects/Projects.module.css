@@ -1,0 +1,486 @@
+.projects {
+    display: flex;
+    background-color: #011627;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.projects__section {
+    width: 100%;
+}
+
+.projects__section:last-child {
+    border-top: 1px solid #1E2D3D;
+    width: 100%;
+}
+
+.folder__projects_icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
+}
+
+.folder__checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    border: 2px solid #607B96;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: transparent;
+}
+
+.folder__checkbox:checked {
+    background-image: url('/img/Check.svg');
+    background-position: center;
+}
+
+.folder__projects_iconActive {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+}
+
+.infoProjects {
+    display: flex;
+    flex-direction: column;
+    max-width: 311px;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #1E2D3D;
+}
+
+.chapter {
+    padding-top: 10px;
+    padding-left: 22px;
+    padding-bottom: 9.51px;
+    border-bottom: 1px solid #1E2D3D;
+    max-width: 311px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.chapter__arrow {
+    cursor: pointer;
+}
+
+.chapter__title {
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-right: auto;
+}
+
+.folders:first-child {
+    border-bottom: 1px solid #1E2D3D;
+    padding-top: 17px;
+    padding-bottom: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.folders:last-child {
+    height: 100%;
+    padding-top: 17px;
+    padding-bottom: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.folder__projects {
+    display: flex;
+    padding-left: 22px;
+    align-items: center;
+    gap: 8.28px;
+}
+
+.folder__text {
+    cursor: pointer;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    transition: 0.3s;
+}
+
+.folder__text:hover {
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.chapter_close {
+    height: 42px;
+}
+
+.chapterContent_close {
+    height: 0;
+    padding: 0;
+    display: none;
+    transition: 0.4s;
+}
+
+.projects__all {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.projects__windows {
+    width: 100%;
+    border-bottom: 1px solid #1E2D3D;
+}
+
+.projects__window {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 167px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #1E2D3D;
+}
+
+.projects__windowText {
+    cursor: pointer;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: 14px;
+    margin-right: auto;
+    transition: 0.3s;
+}
+
+.projects__windowText:hover {
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: 14px;
+}
+
+.projects__windowClose {
+    cursor: pointer;
+    margin-right: 11px;
+}
+
+.projects_all {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.projects__cards {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-height: 72vh;
+    overflow-y: scroll;
+    padding-top: 110px;
+    padding-bottom: 20px;
+    margin: 0 0 0 20px;
+    gap: 40px;
+}
+
+.projects__cards::-webkit-scrollbar {
+    width: 15px;
+    background-color: transparent;
+}
+
+.projects__cards::-webkit-scrollbar-thumb {
+    background-color: #607B96;
+}
+
+.projects__cards::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-left: 1px solid #1E2D3D;
+}
+
+.card__title {
+    margin-bottom: 14px;
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+}
+
+.card__titleSPAN {
+    color: #5565E8;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card {
+    position: relative;
+    width: 370.348px;
+    height: 314.817px;
+    border-radius: 15px;
+    border: 1px solid #1E2D3D;
+    background: #011221;
+    flex-shrink: 0;
+}
+
+.card__img {
+    width: 368px;
+    height: 145.44px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 15px 15px 0px 0px;
+    border: 0;
+}
+
+.card__text {
+    margin-top: 24px;
+    color: #607B96;
+    font-family: "Fira Code";
+    margin-bottom: 21px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 150%;
+    /* 27px */
+}
+
+.card__button {
+    cursor: pointer;
+    display: inline-flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #FFF;
+    border-radius: 8px;
+    background: #1C2B3A;
+    text-align: right;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-style: normal;
+    border: 0;
+    font-weight: 450;
+    line-height: normal;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.mobileHeaderText {
+    display: none;
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 140%;
+    /* 22.4px */
+}
+
+.mobileHeaderTextSpan {
+    color: #607B96;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 140%;
+}
+
+.card__container {
+    margin-left: 31px;
+    margin-right: 31px;
+}
+
+.mobileTitle {
+    display: none;
+    margin-left: 27px;
+    margin-top: 21px;
+    margin-bottom: 29px;
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 140%;
+    /* 19.6px */
+}
+
+.reactLogoCard {
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    width: 28px;
+    height: 28px;
+    padding: 2px;
+    border-radius: 2px;
+    background: #86E1F9;
+    flex-shrink: 0;
+}
+
+.jslogo {
+    position: absolute;
+    top: 19px;
+    right: 55px;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    border-radius: 2px;
+    background: #FFA67E;
+    flex-shrink: 0;
+}
+
+.csslogo {
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    width: 28px;
+    height: 28px;
+    padding: 2px;
+    border-radius: 2px;
+    background: #95D6F0;
+    flex-shrink: 0;
+}
+
+.dnone {
+    display: none;
+}
+
+@media screen and (max-width: 1750px) {
+    .infoProjects {
+        max-width: 225px;
+    }
+
+    .projects__cards {
+        padding: 70px 20px 0 20px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .projects {
+        flex-direction: column;
+    }
+
+    .projects__cards::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    .projects__cards {
+        padding: 70px 20px 0 20px;
+    }
+
+    .infoProjects {
+        max-width: 100%;
+        height: fit-content;
+    }
+
+    .projects__section {
+        width: 100%;
+        border-top: 0;
+    }
+
+    .chapter {
+        border-bottom: 0;
+        background-color: #1E2D3D;
+        max-width: unset;
+    }
+
+    .projects__all {
+        width: 100%;
+    }
+
+    .form {
+        max-width: 100%;
+        width: 95%;
+    }
+
+    .projects__codeBlock {
+        display: none;
+    }
+
+    .projects__hr {
+        display: none;
+    }
+
+    .projects__windows {
+        display: none;
+    }
+
+    .form__button {
+        margin-bottom: 10px;
+    }
+
+    .projects__mainBlocks {
+        height: fit-content;
+        margin-top: 42px;
+        padding-bottom: 20px;
+    }
+
+    .folders:last-child {
+        padding-bottom: 0px;
+        margin-bottom: -17px;
+    }
+
+    .form {
+        margin-right: 0;
+    }
+
+    .mobileTitle {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .mobileHeaderText {
+        display: block;
+        margin-bottom: 17px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 291px;
+        height: 328px;
+        flex-shrink: 0;
+    }
+
+    .card__img {
+        width: 289px;
+        height: 146px;
+        flex-shrink: 0;
+    }
+
+    .card__text {
+        font-size: 16px;
+    }
+}
