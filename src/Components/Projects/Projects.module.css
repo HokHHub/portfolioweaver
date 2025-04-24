@@ -152,8 +152,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 167px;
-    width: 100%;
+    min-width: 167px;
+    width: fit-content;
     padding-top: 10px;
     padding-bottom: 10px;
     border-right: 1px solid #1E2D3D;
@@ -168,7 +168,7 @@
     font-weight: 300;
     line-height: normal;
     margin-left: 14px;
-    margin-right: auto;
+    margin-right: 14px;
     transition: 0.3s;
 }
 
