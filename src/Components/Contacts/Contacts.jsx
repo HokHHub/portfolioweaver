@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Contacts() {
     const navigate = useNavigate()
+    const emailForm = 'gmadda37@gmail.com'
 
     let today = new Date().toString().split(' ')
     today = `${today[0]} ${today[2]} ${today[1]}`
@@ -41,21 +42,23 @@ export default function Contacts() {
     }
 
     function handleSubmit(event) {
-        event.preventDefault()
         const formData = new FormData(event.target)
         const name = formData.get('name')
         const email = formData.get('email')
         const message = formData.get('message')
 
         if (!name) {
+            event.preventDefault()
             let nameElement = document.getElementsByClassName(s.form__standartInput)[0]
             nameElement.classList.add(s.focusError)
         }
         if (!email) {
+            event.preventDefault()
             let emailElement = document.getElementsByClassName(s.form__standartInput)[1]
             emailElement.classList.add(s.focusError)
         }
         if (!message) {
+            event.preventDefault()
             let messageElement = document.getElementsByClassName(s.form__bigInput)[0]
             messageElement.classList.add(s.focusError)
         }
@@ -121,7 +124,7 @@ export default function Contacts() {
                     </div>
                     <div className={s.contacts__main}>
                         <div className={s.contacts__mainBlocks}>
-                            <form onSubmit={handleSubmit} className={s.form}>
+                            <form action={`mailto:${emailForm}`} method='POST' onSubmit={handleSubmit} className={s.form}>
                                 <div className={`${s.form__accept} ${s.dnone}`}>
                                     <p className={s.form__thanks}>Thank you! 🤘</p>
                                     <p className={s.form__subtext}>Your message has been accepted. You will recieve answer really soon!</p>

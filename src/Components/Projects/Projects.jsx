@@ -21,8 +21,8 @@ async function checkFileInRepo(repoName) {
     try {
         const response = await fetch(`${baseURL}/${filePath}`, {
             headers: {
-                Authorization: `token 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`,
-            },
+                Authorization: 'token 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'
+            }
         });
 
         if (response.ok) {
@@ -44,16 +44,19 @@ export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [repoStatuses, setRepoStatuses] = useState({});
     const [loading, setLoading] = useState(true);
+    const [boolFilter, setBoolFilter] = useState(false)
     let [randImages, setRandImages] = useState([])
     const navigate = useNavigate();
+    let header = document.getElementsByClassName(s.projects__windowText)[0]
+    let headerMobile = document.getElementsByClassName(s.mobileHeaderTextSpan)[0]
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
                 const response = await fetch('https://api.github.com/users/HokHHub/repos', {
                     headers: {
-                        Authorization: `token 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`,
-                    },
+                        Authorization: 'token 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'
+                    }
                 });
                 const repos = await response.json();
                 setProjects(repos);
@@ -98,21 +101,37 @@ export default function Projects() {
         }
         if (!newArray[0] && !newArray[1] && !newArray[2] && !newArray[3]) {
             textInHeader = ['projects']
+            setBoolFilter(false)
         }
-        if (textInHeader.length > 2) {
-            let plusNumb = textInHeader.length - 2
-            textInHeader = textInHeader.slice(0, 2)
-            textInHeader = textInHeader.join('; ')
-            textInHeader = textInHeader.split('')
-            textInHeader.push(`+${plusNumb}`)
 
-            textInHeader = textInHeader.join('')
-            header.innerText = textInHeader
-            headerMobile.innerText = textInHeader
-        } else {
-            textInHeader = textInHeader.join('; ')
-            header.innerText = textInHeader
-            headerMobile.innerText = textInHeader
+        textInHeader = textInHeader.join('; ')
+        header.innerText = textInHeader
+        headerMobile.innerText = textInHeader
+        setBoolFilter(true)
+        console.log(boolFilter);
+
+    }
+
+    const delFilters = () => {
+        let checkboxes = document.getElementsByClassName(s.folder__checkbox)
+        setFilter([])
+        header.innerText = 'projects'
+        headerMobile.innerText = 'projects'
+        console.log(checkboxes);
+        console.log(boolFilter);
+        let flag = false
+        for (let index = 0; index < checkboxes.length; index++) {
+            if (checkboxes[index].checked == true) {
+                flag = true
+                console.log(checkboxes[index].checked);
+                
+            }
+            checkboxes[index].checked = false
+        }
+        console.log(flag);
+        
+        if (!flag) {
+           navigate('/')
         }
     }
 
@@ -151,7 +170,7 @@ export default function Projects() {
                     <div className={s.projects__windows}>
                         <div className={s.projects__window}>
                             <p className={s.projects__windowText}>projects</p>
-                            <svg onClick={(el) => navigate('/')} className={s.projects__windowClose} xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
+                            <svg onClick={!boolFilter ? () => navigate('/') : () => delFilters()} className={s.projects__windowClose} xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
                                 <path d="M5.00005 4.65244L8.71255 0.939941L9.77305 2.00044L6.06055 5.71294L9.77305 9.42544L8.71255 10.4859L5.00005 6.77344L1.28755 10.4859L0.227051 9.42544L3.93955 5.71294L0.227051 2.00044L1.28755 0.939941L5.00005 4.65244Z" fill="#607B96" />
                             </svg>
                         </div>
