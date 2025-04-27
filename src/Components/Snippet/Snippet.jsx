@@ -113,7 +113,7 @@ export default function Snippet(props){
                 </div>
                 <div className={st.snippet__code}>
                     <pre className={st.snippet__code_parent} >
-                        <code className={`language-${javascript}`}>
+                        <code className={`language`}>
                             {Content.length !== 0 ?
                                 Object.values(Content.files)[0].content.split('\n').map((el, i)=>{
                                     return(
