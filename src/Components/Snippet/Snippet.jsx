@@ -1,8 +1,5 @@
 import st from './Snippet.module.css'
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
 
-hljs.registerLanguage('javascript', javascript);
 import { useEffect, useState, useRef } from 'react';
 
 export default function Snippet(props){
